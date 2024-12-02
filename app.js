@@ -1,24 +1,23 @@
-// Declaramos una función con el nombre exacto "formEuroToDollar"
+// Tasas de conversión
+const oneEuroIs = {
+    "JPY": 156.5, // japan yen
+    "USD": 1.07,  // us dollar
+    "GBP": 0.87,  // british pound
+};
+
 const fromEuroToDollar = function(valueInEuro) {
-    // Convertimos el valor a dólares
-    let valueInDollar = valueInEuro * 1.07;
-    // Retornamos el valor en dólares
-    return valueInDollar;
-}
-// La del Yen
+    return parseFloat((valueInEuro * oneEuroIs["USD"]).toFixed(2));
+};
+
 const fromDollarToYen = function(valueInDollar) {
-    
-    let valueInYen = valueInDollar * 146.26;
-    
-    return valueInYen;
-}
-// La del Pound
+    const oneDollarIsJPY = oneEuroIs["JPY"] / oneEuroIs["USD"];
+    return parseFloat((valueInDollar * oneDollarIsJPY).toFixed(2));
+};
+
 const fromYenToPound = function(valueInYen) {
-    
-    let valueInPound = valueInYen * 0.0055;
-    
-    return valueInPound;
-}
+    const oneYenIsGBP = oneEuroIs["GBP"] / oneEuroIs["JPY"];
+    return parseFloat((valueInYen * oneYenIsGBP).toFixed(2));
+};
 
 
 // Esta es mi función que suma dos números
